@@ -4,7 +4,7 @@
     <bpmn:startEvent id="StartEvent_0">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="FormField_difficulty" label="difficulty" type="string" defaultValue="0" />
+          <camunda:formField id="FormField_name" label="FormField_label" type="FormField_type" defaultValue="0" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_01</bpmn:outgoing>

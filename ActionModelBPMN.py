@@ -6,6 +6,7 @@ from lxml.builder import ElementMaker
 ActionModelNumber = 0
 
 #Prepare informations from Action model
+formName = ActionModels_arr[ActionModelNumber].name
 conditionName = ActionModels_arr[ActionModelNumber].condition
 thenActionName = ActionModels_arr[ActionModelNumber].then_action
 elseActionName = ActionModels_arr[ActionModelNumber].else_action
@@ -35,6 +36,22 @@ root = tree.getroot()
 
 #print(etree.iselement(root))
 
+def change_str(name):
+   # if a != -1 & b == -1:
+   #     return str_tmp.replace("Tx", str(Tx_num))
+   # else:
+   #     return name
+
+   str_tmp = name
+
+   a = str_tmp.find("\n")
+   if a != -1:
+       str_tmp = str_tmp.replace("\n", " ")
+
+   if name == 'FormField_label':
+       return str_tmp.replace('FormField_label', str('FormField_' + formName))
+   return str_tmp
+
 i = 3
 for child in root.getchildren():
     print('tag child 1: ', child.tag)
@@ -47,4 +64,31 @@ for child in root.getchildren():
             print(atr2[0], ':', atr2[1])
         print("==========================================")
         child_w = child2
-    print('---------------------------------------')
+        #######################################################################################################################
+        while len(child_w.getchildren()) != 0:
+            for child_w2 in child_w.getchildren():
+                print('  tag childi ', i, ':', child_w2.tag)
+                for atr_w in child_w2.items():
+                    print(atr_w[0], ':', atr_w[1])
+                #######################################################################################################################
+                j = i + 1
+                while len(child_w2.getchildren()) != 0:
+                    for child_w3 in child_w2.getchildren():
+
+                        print('  tag childj ', j, ':', child_w3.tag)
+                        for atr_w in child_w3.items():
+                            print('B3      ', atr_w[0], ':', atr_w[1])
+
+                            if atr_w[1] == 'FormField_name':
+                                child_w3.set(str(atr_w[1]), change_str(str(atr_w[1])))
+                            if atr_w[1] == 'FormField_label':
+                                child_w3.set(str(atr_w[1]), change_str(str(atr_w[1])))
+
+                            print('A3      ', atr_w[0], ':', atr_w[1])
+                    child_w2 = child_w3
+                    j = i + 1
+            child_w = child_w3
+            i = i + 1
+            print('i:', i)
+        i = 3
+    print("====================================")
