@@ -112,4 +112,4 @@ def print_ActionRuleTypes(ActionRuleTypes_arr):
 #    print(ActionModels_arr[x].then_action)
 #    print(ActionModels_arr[x].else_action)
 
-print_ActionRuleTypes(ActionRuleTypes_arr)
+#print_ActionRuleTypes(ActionRuleTypes_arr)

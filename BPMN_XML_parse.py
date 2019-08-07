@@ -78,7 +78,6 @@ for child in root.getchildren():
         print('   ', atr[0], ':', change_str(str(atr[1])))
         child.set(atr[1], change_str(str(atr[1])))
     for child2 in child.getchildren():
-
         print('  tag child 2:', child2.tag)
         for atr2 in child2.items():
             print('B1      ', atr2[0], ':', atr2[1])
