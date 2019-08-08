@@ -4,7 +4,7 @@
     <bpmn:startEvent id="StartEvent_0">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="FormField_name" label="FormField_label" type="FormField_type" defaultValue="0" />
+          <camunda:formField id="FormField_TEST" label="FormField_TEST" type="FormField_type" defaultValue="Goto Next" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_01</bpmn:outgoing>
@@ -14,10 +14,10 @@
       <bpmn:outgoing>SequenceFlow_10</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_12</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Task_0_0" name="0">
+    <bpmn:task id="Task_Goto Next_0" name="0">
       <bpmn:incoming>SequenceFlow_10</bpmn:incoming>
     </bpmn:task>
-    <bpmn:task id="Task_1_0" name="1">
+    <bpmn:task id="Task_Goto Next_0" name="1">
       <bpmn:incoming>SequenceFlow_12</bpmn:incoming>
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_01" sourceRef="StartEvent_0" targetRef="ExclusiveGateway_0" />

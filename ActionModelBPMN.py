@@ -48,8 +48,12 @@ def change_str(name):
    if a != -1:
        str_tmp = str_tmp.replace("\n", " ")
 
-   if name == 'FormField_label':
-       return str_tmp.replace('FormField_label', str('FormField_' + formName))
+   if name == 'FormField_name':
+       print(">>>>>>>>", str_tmp.replace('name', str(formName)))
+       return str_tmp.replace('name', str(formName))
+   elif name == 'FormField_label':
+       print(">>>>>>>>", str_tmp.replace('label', str(formName)))
+       return str_tmp.replace('label', str(formName))
    return str_tmp
 
 i = 3
