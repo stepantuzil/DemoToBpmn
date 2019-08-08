@@ -4,25 +4,25 @@
     <bpmn:startEvent id="StartEvent_0">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="FormField_TEST" label="FormField_TEST" type="FormField_type" defaultValue="Goto Next" />
+          <camunda:formField id="FormField_TEST" label="FormField_TEST" type="FormField_type" defaultValue="GotoNext" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_01</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_0" name="ConditionName" default="SequenceFlow_10">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0" name="X<10" default="SequenceFlow_10">
       <bpmn:incoming>SequenceFlow_01</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_10</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_12</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Task_Goto Next_0" name="0">
+    <bpmn:task id="Task_GotoNext_0" name="GotoNext">
       <bpmn:incoming>SequenceFlow_10</bpmn:incoming>
     </bpmn:task>
-    <bpmn:task id="Task_Goto Next_0" name="1">
+    <bpmn:task id="Task_GotoSomewhere_0" name="GotoSomewhere">
       <bpmn:incoming>SequenceFlow_12</bpmn:incoming>
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_01" sourceRef="StartEvent_0" targetRef="ExclusiveGateway_0" />
-    <bpmn:sequenceFlow id="SequenceFlow_10" name="0" sourceRef="ExclusiveGateway_0" targetRef="Task_0_0" />
-    <bpmn:sequenceFlow id="SequenceFlow_12" name="1" sourceRef="ExclusiveGateway_0" targetRef="Task_1_0">
+    <bpmn:sequenceFlow id="SequenceFlow_10" name="GotoNext" sourceRef="ExclusiveGateway_0" targetRef="Task_GotoNext_0" />
+    <bpmn:sequenceFlow id="SequenceFlow_12" name="GotoSomewhere" sourceRef="ExclusiveGateway_0" targetRef="Task_GotoSomewhere_0">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{difficulty[option]=='1'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
   </bpmn:process>
@@ -37,10 +37,10 @@
           <dc:Bounds x="80" y="-15" width="76" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_0_0_di" bpmnElement="Task_0_0">
+      <bpmndi:BPMNShape id="Task_GotoNext_0_di" bpmnElement="Task_GotoNext_0">
         <dc:Bounds x="266" y="0" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_1_0_di" bpmnElement="Task_1_0">
+      <bpmndi:BPMNShape id="Task_GotoSomewhere_0_di" bpmnElement="Task_GotoSomewhere_0">
         <dc:Bounds x="266" y="138" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_01_di" bpmnElement="SequenceFlow_01">
