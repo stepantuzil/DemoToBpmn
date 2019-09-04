@@ -143,5 +143,5 @@ def DoTheMagic():
     PrepareData()
     GetItTogether()
 
-
-DoTheMagic()
+if transf_type != 2:
+    DoTheMagic()
